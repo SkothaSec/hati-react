@@ -4,45 +4,32 @@ import { useMediaQuery } from 'react-responsive';
 import { Home } from '../Home';
 import { About } from '../About';
 import { PageNotFound } from '../Errors';
+import { Section, Container } from '../../components/Layout';
+
 import LayoutNav from './LayoutNav';
+import LayoutFooter from './LayoutFooter';
+import { Routes } from '../../routes';
 
-const NavMQ = (props) => {
-	const { children, color, label } = props;
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 568px)' });
-	const isPortrait = useMediaQuery({ orientation: 'portrait' });
-	if (isTabletOrMobile) {
-		return (
-			<Navbar fixed bottom color={color} label={label}>
-				{children}
-			</Navbar>
-		);
-	} else {
-		return (
-			<Navbar fixed top color={color} label={label}>
-				{children}
-			</Navbar>
-		);
-	}
-};
-
-const Layout = (props) => {
-	const {} = props;
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 568px)' });
-	const isPortrait = useMediaQuery({ orientation: 'portrait' });
+//TODO: Get this to work without having to use body.
+/**
+ * Layout for the whole app is here
+ * Body tag needs fixed somehow.
+ *
+ */
+const Layout = () => {
 	return (
 		<div>
 			<LayoutNav />
-			<body
-				className={`has-navbar-fixed-${
-					isTabletOrMobile || isPortrait ? 'bottom' : 'top'
-				}`}>
-				<br />
-				<Home />
-				<br />
-				<About />
-				<br />
-				<PageNotFound />
-			</body>
+			<Section>
+				<Container fluid>
+					<Section>
+						<Routes />
+					</Section>
+				</Container>
+			</Section>
+			<Section>
+				<LayoutFooter />
+			</Section>
 		</div>
 	);
 };

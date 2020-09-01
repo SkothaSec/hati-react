@@ -7,7 +7,7 @@ export const Navbar = (props) => {
 	return (
 		<nav
 			className={`
-			navbar is-${color} 
+			navbar ${color && `is-${color}`} 
 			${spaced && 'is-spaced'}
 			${fixed && `is-fixed-${bottom ? 'bottom' : top ? 'top' : 'top'}`}
 			`}

@@ -21,7 +21,7 @@ const NavbarItem = (props) => {
 		active,
 	} = props;
 
-	if (brand || link) {
+	if (link) {
 		return (
 			<a
 				className={`
@@ -44,6 +44,7 @@ const NavbarItem = (props) => {
                     ${active && `is-active`} 
                     ${expand && `is-expanded`} 
                     ${hasDropdown && `has-dropdown`}`}>
+				{brand && <img src={src} width={width} height={height} alt={alt} />}
 				{children}
 			</div>
 		);
