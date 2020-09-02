@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Section } from '../../components/Layout';
+import { Section, Hero } from '../../components/Layout';
+import { Header } from '../../components/Typography';
 
 const Home = (props) => {
 	const {} = props;
 
 	return (
-		<div>
-			<h2>Home</h2>
-			<p>Home Page</p>
-		</div>
+		<Hero size="fullheight">
+			<Header type="h1" color="primary">
+				HomePage
+			</Header>
+		</Hero>
 	);
 };
 

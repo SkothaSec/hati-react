@@ -46,6 +46,7 @@ Hero.propTypes = {
 	children: PropTypes.node,
 	link: PropTypes.bool,
 	color: PropTypes.string,
+	size: PropTypes.oneOf(['medium', 'large', 'fullheight']),
 };
 
 HeroBody.propTypes = {
